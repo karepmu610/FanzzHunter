@@ -1,0 +1,273 @@
+<!doctype html>
+
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pembelajaran & Ujian: Bot WhatsApp dan Keamanan Siber</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#06b6d4;--muted:#94a3b8;--glass:rgba(255,255,255,0.03)}
+    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    body{background:linear-gradient(180deg,#071029 0%, #07121b 60%);color:#e6eef6;padding:20px}
+    .container{max-width:1000px;margin:0 auto}
+    header{display:flex;gap:16px;align-items:center}
+    h1{margin:0;font-weight:700;font-size:20px}
+    nav{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap}
+    button, .btn{background:var(--glass);border:1px solid rgba(255,255,255,0.04);padding:8px 12px;border-radius:10px;color:var(--muted);cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#04202a;border:none}
+    main{display:grid;grid-template-columns:1fr;gap:18px;margin-top:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04)}
+    section h2{margin-top:0}
+    .two-col{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    .topic-list{display:flex;flex-direction:column;gap:8px}
+    .topic{padding:10px;border-radius:8px;background:rgba(255,255,255,0.01);cursor:pointer}
+    .topic.active{outline:2px solid rgba(6,182,212,0.12)}
+    .quiz-question{margin-bottom:12px}
+    .choices button{display:block;width:100%;text-align:left;padding:8px;margin:6px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit}
+    .hidden{display:none}
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
+    pre.explain{white-space:pre-wrap;background:#041021;padding:12px;border-radius:8px;color:var(--muted)}
+    .score{font-weight:700;font-size:18px}
+    @media(max-width:900px){.two-col{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Pembelajaran & Ujian: Bot WhatsApp & Keamanan Siber</h1>
+        <div style="color:var(--muted);font-size:13px">Materi singkat + tes (edukatif, tanpa instruksi berbahaya)</div>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:8px">
+        <button id="btn-learn" class="btn">Materi</button>
+        <button id="btn-quiz" class="btn primary">Ujian</button>
+      </div>
+    </header><main>
+  <div class="two-col">
+    <div>
+      <article id="materi" class="card">
+        <section id="whatsapp-bot">
+          <h2>Apa itu Bot WhatsApp?</h2>
+          <p>Bot WhatsApp adalah program yang dapat mengotomatisasi pengiriman/penerimaan pesan di platform WhatsApp. Dalam konteks edukasi: pahami konsep, arsitektur dasar, dan penggunaan sah — seperti layanan pelanggan, notifikasi, dan automasi internal.</p>
+          <h3>Komponen Umum (ringkas)</h3>
+          <ul>
+            <li>API / koneksi: cara legal untuk terhubung ke WhatsApp (mis. resmi Business API, penyedia resmi).</li>
+            <li>Server/backend: menangani pesan, logika, dan penyimpanan.</li>
+            <li>Webhook: menerima event masuk dari WhatsApp.</li>
+            <li>Client & UI: antarmuka untuk admin atau operator.</li>
+          </ul>
+          <h3>Etika & Hukum</h3>
+          <p>Jangan gunakan bot untuk spam, menyebarkan malware, atau melanggar privasi. Ikuti kebijakan WhatsApp dan hukum setempat.</p>
+        </section>
+
+        <section id="keamanan-siber" style="margin-top:14px">
+          <h2>Apa itu Penyerangan Siber (Cyber Attacks)?</h2>
+          <p>Penyerangan siber adalah tindakan berbahaya yang mencoba mengganggu, mencuri, atau merusak sistem digital. Materi ini hanya menjelaskan konsep umum agar pembaca paham risiko dan cara mencegahnya — <strong>tanpa</strong> memberikan langkah teknis untuk menyerang.</p>
+          <h3>Tipe Umum (konsep)</h3>
+          <ul>
+            <li>Phishing: menipu pengguna agar membocorkan informasi sensitif.</li>
+            <li>Malware: perangkat lunak berbahaya yang merusak atau mencuri data.</li>
+            <li>DDoS: membanjiri layanan sehingga tidak tersedia untuk pengguna sah.</li>
+            <li>Ransomware: mengenkripsi data dan menuntut tebusan — pembahasan pada level konseptual saja.</li>
+          </ul>
+          <h3>Pencegahan & Praktik Baik</h3>
+          <ul>
+            <li>Gunakan autentikasi dua faktor dan kata sandi kuat.</li>
+            <li>Perbarui perangkat lunak dan patch keamanan secara rutin.</li>
+            <li>Backup data secara teratur dan simpan secara terpisah.</li>
+            <li>Latih karyawan/teman agar tidak mudah tertipu (awareness).</li>
+          </ul>
+        </section>
+
+        <section id="kesimpulan" style="margin-top:14px">
+          <h2>Ringkasan & Etika</h2>
+          <p>Tujuan pembelajaran ini adalah meningkatkan pemahaman dan kesadaran. Bekerjalah selalu secara etis: gunakan pengetahuan untuk memperbaiki keamanan, bukan mengeksploitasi.</p>
+        </section>
+      </article>
+
+    </div>
+
+    <aside class="card">
+      <h3>Menu Cepat</h3>
+      <div class="topic-list" id="toc">
+        <div class="topic active" data-target="whatsapp-bot">Apa itu Bot WhatsApp?</div>
+        <div class="topic" data-target="keamanan-siber">Penyerangan Siber (konsep)</div>
+        <div class="topic" data-target="kesimpulan">Ringkasan & Etika</div>
+        <div style="height:8px"></div>
+        <button id="start-quiz" class="btn primary">Mulai Ujian</button>
+        <button id="view-answers" class="btn">Lihat Kumpulan Soal</button>
+      </div>
+    </aside>
+  </div>
+
+  <div id="quiz-area" class="card hidden">
+    <h2>Ujian: Pemahaman Bot WhatsApp & Keamanan Siber</h2>
+    <div id="quiz-info" style="color:var(--muted);margin-bottom:10px">Total soal: <span id="total-q">0</span> • Timer: <span id="timer">--:--</span></div>
+    <div id="question-container"></div>
+    <div id="quiz-controls" style="margin-top:12px;display:flex;gap:8px">
+      <button id="prev" class="btn">Sebelumnya</button>
+      <button id="next" class="btn primary">Berikutnya</button>
+      <button id="submit-quiz" class="btn">Serahkan & Nilai</button>
+    </div>
+    <div id="result" class="hidden" style="margin-top:14px">
+      <div class="score">Skor: <span id="score-num">0</span> / <span id="score-max">0</span></div>
+      <div id="feedback" style="margin-top:10px"></div>
+      <button id="retake" class="btn">Ulangi Ujian</button>
+    </div>
+  </div>
+
+  <div id="all-questions" class="card hidden">
+    <h3>Kumpulan Soal (Preview)</h3>
+    <div id="qa-list"></div>
+  </div>
+
+</main>
+
+<footer>
+  Dibuat untuk tujuan edukasi — materi bersifat konseptual dan tidak memuat langkah berbahaya. Jika ingin materi ditambah (bahasa, tingkat kesulitan soal, jumlah soal), klik "Ubah".
+</footer>
+
+  </div><script>
+// --- Data soal (edukatif, non-berbahaya) ---
+const quizData = [
+  {q: 'Apa fungsi utama bot WhatsApp dalam konteks bisnis?', choices:['Mengirim spam massal','Otomatisasi layanan pelanggan dan notifikasi','Membobol akun pengguna','Mengganti nomor telepon pengguna'], a:1, explain:'Bot digunakan terutama untuk otomatisasi layanan pelanggan, notifikasi, atau integrasi sistem.'},
+  {q: 'Manakah praktik baik terkait keamanan yang benar?', choices:['Menggunakan kata sandi lemah','Tidak pernah update sistem','Menggunakan autentikasi dua faktor','Membagikan kredensial via chat'], a:2, explain:'Autentikasi dua faktor menambah lapisan keamanan penting.'},
+  {q: 'Phishing paling terkait dengan:', choices:['Serangan fisik','Penipuan untuk mencuri informasi','Mengambil alih saluran jaringan','Membuat backup data'], a:1, explain:'Phishing adalah teknik menipu pengguna agar membocorkan informasi sensitif.'},
+  {q: 'Sumber resmi yang sebaiknya digunakan untuk membangun bot WhatsApp adalah:', choices:['API resmi WhatsApp Business / penyedia resmi','Menggunakan scraping dan akun pribadi','Menggunakan malware','Membeli daftar kontak ilegal'], a:0, explain:'Gunakan API resmi atau penyedia yang mematuhi kebijakan untuk tetap legal dan aman.'},
+  {q: 'Ransomware biasanya melakukan:', choices:['Meningkatkan performa sistem','Mengenkripsi data dan menuntut tebusan','Mengirim notifikasi resmi','Membersihkan cache browser'], a:1, explain:'Ransomware mengenkripsi data korban dan meminta tebusan sebagai tebusan.'},
+  {q: 'Apa langkah pencegahan yang tidak tepat?', choices:['Backup data secara teratur','Menginstal update keamanan','Mengklik tautan mencurigakan dalam email','Melatih karyawan soal keamanan'], a:2, explain:'Mengklik tautan mencurigakan meningkatkan risiko kompromi.'},
+  {q: 'Webhook pada bot berguna untuk:', choices:['Menyajikan UI untuk pengguna akhir','Menerima event/pesan dari platform ke server Anda','Mengganti nomor telepon','Membobol server lain'], a:1, explain:'Webhook menerima event yang dikirim platform ke server Anda secara real-time.'},
+  {q: 'DDoS bertujuan untuk:', choices:['Meningkatkan traffic situs dengan tujuan pemasaran','Membuat layanan tidak tersedia untuk pengguna sah','Menyimpan data cadangan','Memperbarui sistem otomatis'], a:1, explain:'DDoS membanjiri layanan sehingga tidak tersedia bagi pengguna sah.'},
+  {q: 'Etika penggunaan bot mencakup:', choices:['Melanggar privasi pengguna tanpa izin','Menggunakan data hanya untuk tujuan yang disetujui pengguna','Membagikan kredensial publik','Mengirimkan malware'], a:1, explain:'Gunakan data hanya sesuai izin dan tujuan yang jelas.'},
+  {q: 'Jika menemukan kelemahan keamanan sebaiknya:', choices:['Eksploitasi untuk keuntungan pribadi','Laporkan ke pemilik/penanggung jawab dan bantu perbaikan','Simpan dan jangan memberi tahu siapa pun','Gunakan untuk mengirim spam'], a:1, explain:'Praktik etis adalah melaporkan kelemahan ke pihak yang bertanggung jawab (respons bertanggung jawab).'}
+];
+
+// UI & logic
+const totalQ = quizData.length;
+document.getElementById('total-q').textContent = totalQ;
+const questionContainer = document.getElementById('question-container');
+const qaList = document.getElementById('qa-list');
+const timerEl = document.getElementById('timer');
+let current = 0; let answers = Array(totalQ).fill(null);
+let timerSeconds = 15 * 60; // 15 menit default
+let timerInterval = null;
+
+function renderQuestion(i){
+  const data = quizData[i];
+  questionContainer.innerHTML = '';
+  const qBox = document.createElement('div');
+  qBox.className = 'quiz-question';
+  qBox.innerHTML = `<div><strong>Soal ${i+1}:</strong> ${escapeHtml(data.q)}</div>`;
+  const choices = document.createElement('div'); choices.className='choices';
+  data.choices.forEach((c, idx)=>{
+    const btn = document.createElement('button');
+    btn.innerHTML = `${String.fromCharCode(65+idx)}. ${escapeHtml(c)}`;
+    btn.onclick = ()=>{
+      answers[i]=idx; // simpan jawaban
+      // highlight selected
+      Array.from(choices.children).forEach(b=>b.style.outline='');
+      btn.style.outline='3px solid rgba(6,182,212,0.2)';
+    };
+    choices.appendChild(btn);
+  });
+  const explain = document.createElement('pre'); explain.className='explain hidden'; explain.textContent = data.explain;
+  qBox.appendChild(choices);
+  qBox.appendChild(explain);
+  questionContainer.appendChild(qBox);
+}
+
+function renderQAList(){
+  qaList.innerHTML='';
+  quizData.forEach((d,i)=>{
+    const p = document.createElement('div');
+    p.style.marginBottom='10px';
+    p.innerHTML = `<strong>Soal ${i+1}:</strong> ${escapeHtml(d.q)}<br><em>Jawaban benar:</em> ${String.fromCharCode(65+d.a)}. ${escapeHtml(d.choices[d.a])}`;
+    qaList.appendChild(p);
+  });
+}
+
+function showSection(name){
+  document.getElementById('materi').classList.toggle('hidden', name!=='materi');
+  document.getElementById('quiz-area').classList.toggle('hidden', name!=='quiz');
+  document.getElementById('all-questions').classList.toggle('hidden', true);
+}
+
+// timer
+function startTimer(){
+  clearInterval(timerInterval);
+  timerInterval = setInterval(()=>{
+    if(timerSeconds<=0){ clearInterval(timerInterval); submitQuiz(); return; }
+    timerSeconds--;
+    const m = Math.floor(timerSeconds/60).toString().padStart(2,'0');
+    const s = (timerSeconds%60).toString().padStart(2,'0');
+    timerEl.textContent = `${m}:${s}`;
+  },1000);
+}
+
+function escapeHtml(s){ return s.replace(/[&<>\"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+// event bindings
+document.getElementById('start-quiz').onclick = ()=>{ openQuiz(); };
+document.getElementById('btn-quiz').onclick = ()=>{ openQuiz(); };
+document.getElementById('btn-learn').onclick = ()=>{ showSection('materi'); };
+
+function openQuiz(){
+  showSection('quiz');
+  current = 0;
+  answers = Array(totalQ).fill(null);
+  renderQuestion(current);
+  document.getElementById('total-q').textContent = totalQ;
+  document.getElementById('score-num').textContent = '0';
+  document.getElementById('score-max').textContent = totalQ;
+  document.getElementById('result').classList.add('hidden');
+  // reset timer
+  timerSeconds = 15*60; startTimer();
+}
+
+document.getElementById('next').onclick = ()=>{
+  if(current<totalQ-1){ current++; renderQuestion(current); }
+  else alert('Ini soal terakhir. Klik `Serahkan & Nilai` jika sudah selesai.');
+};
+document.getElementById('prev').onclick = ()=>{ if(current>0){current--; renderQuestion(current);} };
+
+document.getElementById('submit-quiz').onclick = ()=>{ if(confirm('Anda yakin ingin mengumpulkan jawaban?')) submitQuiz(); };
+
+document.getElementById('retake').onclick = ()=>{ openQuiz(); };
+
+document.getElementById('view-answers').onclick = ()=>{ renderQAList(); document.getElementById('all-questions').classList.remove('hidden'); }
+
+function submitQuiz(){
+  clearInterval(timerInterval);
+  let score=0; let feedbackHTML='';
+  quizData.forEach((d,i)=>{
+    const correct = d.a; const given = answers[i];
+    if(given===correct) score++;
+    feedbackHTML += `<div style=\"margin-bottom:10px\"><strong>Soal ${i+1}:</strong> ${escapeHtml(d.q)}<br>`+
+      `<em>Jawaban Anda:</em> ${given===null?'<span style=\\"color:var(--muted)\\">(tidak menjawab)</span>':String.fromCharCode(65+given)+'. '+escapeHtml(d.choices[given])}<br>`+
+      `<em>Jawaban benar:</em> ${String.fromCharCode(65+correct)}. ${escapeHtml(d.choices[correct])}<br>`+
+      `<div style=\\"margin-top:6px\\"><strong>Penjelasan:</strong> ${escapeHtml(d.explain)}</div></div>`;
+  });
+  document.getElementById('score-num').textContent = score;
+  document.getElementById('score-max').textContent = totalQ;
+  document.getElementById('feedback').innerHTML = feedbackHTML;
+  document.getElementById('result').classList.remove('hidden');
+  // scroll to result
+  document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+
+// TOC click behavior
+Array.from(document.querySelectorAll('.topic')).forEach(el=>{
+  el.onclick = ()=>{
+    Array.from(document.querySelectorAll('.topic')).forEach(t=>t.classList.remove('active'));
+    el.classList.add('active');
+    const tgt = el.dataset.target;
+    showSection('materi');
+    document.getElementById(tgt).scrollIntoView({behavior:'smooth'});
+  }
+});
+
+// initial render
+renderQAList();
+showSection('materi');
+</script></body>
+</html>
